@@ -1,8 +1,10 @@
 <script setup lang="ts">
+import { ref } from 'vue'
+import Modal from './Modal.vue'
 </script>
 
 <template>
-    <nav v-if="$route.path != '/login'" class="p-4 flex w-full">
+    <nav v-if="$route.path != '/login' && $route.path != '/create_account'" class="flex">
         <h3 class="text-md flex-1 text-white font-semibold">{{ $route.name }}</h3>
         <div class="relative text-[#737f99]">
             <i class="w-4 h-4 material-icons-round absolute top-1 left-1">search</i>
@@ -16,18 +18,23 @@
             <button>
                 <i class="material-icons-round">email</i>
             </button>
-            <router-link to="/login">
-                <button>
+            <button>
+                <label for="my-modal-3" class="modal-button cursor-pointer">
                     <i class="material-icons-round">logout</i>
-                </button>
-            </router-link>
+                </label>
+            </button>
         </div>
+        <Modal />
     </nav>
 </template>
 
 <style scoped>
 button {
     @apply bg-transparent w-9 h-9 p-0 outline-none text-[#ccc]
+}
+
+button label {
+    @apply cursor-pointer w-fit
 }
 
 button:active {

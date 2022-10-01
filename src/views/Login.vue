@@ -14,8 +14,10 @@ const submit = () => {
             <span class="text-white">GRO</span>
             <span class="text-[#db6f0a]">HOUSE</span>
         </h3>
-        <input type="email" class="input" placeholder="Email" v-model="user.email" required />
-        <input type="password" class="input" placeholder="Password" v-model="user.password" required />
+        <input type="email" class="input focus: outline-none focus:border-[#db6f0a]" placeholder="Email"
+            v-model="user.email" required />
+        <input type="password" class="input focus: outline-none focus:border-[#db6f0a]" placeholder="Password"
+            v-model="user.password" required />
         <router-link to="/">
             <input type="submit" class="px-4 py-2 cursor-pointer mx-auto w-fit gradient text-white uppercase font-bold"
                 value="Sign Up" />
@@ -26,5 +28,9 @@ const submit = () => {
 <style scoped>
 form {
     @apply flex flex-col gap-4 absolute -translate-y-1/2 top-1/2 left-1/2 -translate-x-1/2 text-center
+}
+
+input {
+    @apply w-full px-4 py-2 rounded-lg border-2 border-gray-300
 }
 </style>

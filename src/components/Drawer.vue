@@ -13,14 +13,14 @@ const items = [
 
 <template>
     <div class="drawer w-[25vw] flex flex-col items-stretch justify-around max-h-screen overflow-y-auto"
-        v-if="$route.path != '/login'">
+        v-if="$route.path != '/login' && $route.path != '/create_account'">
         <div id="logo" class="font-bold text-xl ml-4">
             <span class="text-white">GRO</span>
             <span class="text-[#db6f0a]">HOUSE</span>
         </div>
         <div id="user" class="flex items-center ml-4 gap-4">
             <div id="pic" class="rounded-full w-10">
-                <img class="rounded-full" src="/assets/avatar.jpeg" />
+                <img class="rounded-full" src="/assets/avatar.png" />
             </div>
             <div id="desc">
                 <h3 id="name" class="font-bold text-white">Fadilah</h3>
@@ -37,7 +37,7 @@ const items = [
                 </router-link>
             </div>
         </div>
-        <Receipt />
+        <!-- <Receipt /> -->
     </div>
 </template>
 
