@@ -1,4 +1,5 @@
 <script lang="ts" setup>
+import Receipt from './Receipt.vue';
 const items = [
     { icon: "dashboard", label: "Dashboard", link: "/" },
     { icon: "notes", label: "Menu", link: "/menu" },
@@ -11,14 +12,15 @@ const items = [
 </script>
 
 <template>
-    <div class="drawer w-[25vw] flex flex-col items-stretch justify-around">
+    <div class="drawer w-[25vw] flex flex-col items-stretch justify-around max-h-screen overflow-y-auto"
+        v-if="$route.path != '/login'">
         <div id="logo" class="font-bold text-xl ml-4">
             <span class="text-white">GRO</span>
             <span class="text-[#db6f0a]">HOUSE</span>
         </div>
         <div id="user" class="flex items-center ml-4 gap-4">
             <div id="pic" class="rounded-full w-10">
-                <img class="rounded-full" src="assets/avatar.jpeg" />
+                <img class="rounded-full" src="/assets/avatar.jpeg" />
             </div>
             <div id="desc">
                 <h3 id="name" class="font-bold text-white">Fadilah</h3>
@@ -28,21 +30,34 @@ const items = [
         <div class="drawer-side font-bolder">
             <div class="overflow-y-auto text-base-content p-2">
                 <router-link v-for="item in items" :to="item.link"
-                    class="px-4 py-2 my-2 flex items-center gap-4 text-sm text-[#747bff]"
-                    :class="{'grad-btn text': $route.name == item.label}">
+                    class="button px-2 w-3/4 py-2 my-2 flex items-center gap-4 text-sm text-[#747bff]"
+                    :class="{'gradient text-[#111] hover:text-[#111] text rounded-full': $route.name == item.label}">
                     <i class="material-icons-round">{{item.icon}}</i>
                     <span>{{item.label}}</span>
                 </router-link>
             </div>
         </div>
-        <div class="card"></div>
+        <Receipt />
     </div>
 </template>
 
 <style scoped>
-.grad-btn {
-    box-shadow: 0 0 4px #fe7a00, 0 0 8px #fcba00;
-    @apply bg-gradient-to-r from-[#fe7a00] to-[#fcba00] text-[#111] rounded-full text-justify
+.button:active {
+    animation: bounce 0.5s;
+}
+
+@keyframes bounce {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(0.9);
+    }
+
+    100% {
+        transform: scale(1);
+    }
 }
 
 .text {

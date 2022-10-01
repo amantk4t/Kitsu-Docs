@@ -1,4 +1,4 @@
-import { createRouter, createWebHashHistory } from "vue-router";
+import { createRouter, createWebHistory } from "vue-router";
 import Dashboard from '../views/Dashboard.vue'
 
 
@@ -8,40 +8,45 @@ const routes = [
         name: 'Dashboard',
         component: Dashboard
     },
-    { 
+    {
         path: "/menu",
-        name: "Menu", 
-        component: import(/*Lazy load importing Menu component*/"../views/Menu.vue") 
+        name: "Menu",
+        component: () => import("../views/Menu.vue")
     },
-    { 
+    {
         path: "/orders",
-        name: "Orders", 
-        component: import(/*Lazy load importing Orders component*/"../views/Orders.vue") 
+        name: "Orders",
+        component: () => import("../views/Orders.vue")
     },
-    { 
+    {
         path: "/customer",
-        name: "Customer", 
-        component: import(/*Lazy load importing Customer component*/"../views/Customer.vue") 
+        name: "Customer",
+        component: () => import("../views/Customer.vue")
     },
-    { 
+    {
         path: "/review",
-        name: "Review", 
-        component: import(/*Lazy load importing Review component*/"../views/Review.vue") 
+        name: "Review",
+        component: () => import("../views/Review.vue")
     },
-    { 
+    {
         path: "/invoices",
-        name: "Invoices", 
-        component: import(/*Lazy load importing Invoices component*/"../views/Invoices.vue") 
+        name: "Invoices",
+        component: () => import("../views/Invoices.vue")
     },
-    { 
+    {
         path: "/setting",
-        name: "Setting", 
-        component: import(/*Lazy load importing Setting component*/"../views/Setting.vue") 
+        name: "Setting",
+        component: () => import("../views/Setting.vue")
     },
+    {
+        path: '/login',
+        name: 'Login',
+        component: () => import("../views/Login.vue")
+    }
 ]
 
 const router = createRouter({
-    history: createWebHashHistory(), 
+    history: createWebHistory(),
     routes
 })
 
