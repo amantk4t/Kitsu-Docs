@@ -12,8 +12,10 @@ const items = [
 </script>
 
 <template>
-    <div class="drawer w-[25vw] flex flex-col items-stretch justify-around max-h-screen overflow-y-auto"
+    <div class="drawer drawer-mobile max-w-[25vw] flex flex-col items-stretch justify-around max-h-screen overflow-y-auto"
         v-if="$route.path != '/login' && $route.path != '/create_account'">
+        <input id="my-drawer-2" type="checkbox" class="drawer-toggle" />
+        <label for="my-drawer-2" class="btn btn-primary drawer-button lg:hidden">Open drawer</label>
         <div id="logo" class="font-bold text-xl ml-4">
             <span class="text-white">GRO</span>
             <span class="text-[#db6f0a]">HOUSE</span>
@@ -37,7 +39,7 @@ const items = [
                 </router-link>
             </div>
         </div>
-        <!-- <Receipt /> -->
+        <Receipt />
     </div>
 </template>
 

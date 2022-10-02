@@ -1,19 +1,21 @@
-import {createStore} from 'vuex';
+import { createPinia } from 'pinia'
+import { defineStore } from 'pinia'
 
-const store = createStore({
-    state: {
-        count: 0
-    },
-    mutations: {
-        increment(state) {
-            state.count++;
+export const pinia = createPinia()
+
+export const useUserStore = defineStore({
+    id: 'user',
+    state: () => ({
+        user: null,
+    }),
+    getters: {
+        isLoggedIn(state) {
+            return state.user !== null
         }
     },
     actions: {
-        increment(context) {
-            context.commit('increment');
+        login(user) {
+            this.user = user
         }
     }
-});
-
-export default store;
+})
