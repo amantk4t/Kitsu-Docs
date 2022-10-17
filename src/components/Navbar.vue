@@ -4,7 +4,14 @@ import Modal from './Modal.vue'
 </script>
 
 <template>
-    <nav v-if="$route.path != '/login' && $route.path != '/create_account'" class="flex">
+    <nav v-if="$route.path != '/login' && $route.path != '/create_account' && $route.path != '/forgot_password'"
+        class="flex items-center">
+        <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
+        <label for="my-drawer-3" class="drawer-button text-[#737f99] cursor-pointer mx-2 button">
+            <button>
+                <i class="material-icons-round">menu</i>
+            </button>
+        </label>
         <h3 class="text-md flex-1 text-white font-semibold">{{ $route.name }}</h3>
         <div class="relative text-[#737f99]">
             <i class="w-4 h-4 material-icons-round absolute top-1 left-1">search</i>
@@ -19,7 +26,7 @@ import Modal from './Modal.vue'
                 <i class="material-icons-round">email</i>
             </button>
             <button>
-                <label for="my-modal-3" class="modal-button cursor-pointer">
+                <label for="logout-modal" class="modal-button cursor-pointer">
                     <i class="material-icons-round">logout</i>
                 </label>
             </button>

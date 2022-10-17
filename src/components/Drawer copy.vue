@@ -2,19 +2,21 @@
 import Receipt from './Receipt.vue';
 const items = [
     { icon: "dashboard", label: "Dashboard", link: "/" },
+    { icon: "notes", label: "Menu", link: "/menu" },
     { icon: "shopping_cart", label: "Orders", link: "/orders" },
     { icon: "group", label: "Customer", link: "/customer" },
     { icon: "sms", label: "Review", link: "/review" },
+    { icon: "text_snippet", label: "Invoices", link: "/invoices" },
     { icon: "settings", label: "Setting", link: "/setting" },
-]
+] 
 </script>
 
 <template>
-    <div class="drawer-side menu p-4 overflow-y-auto w-80"
-        v-if="$route.path != '/login' && $route.path != '/create_account' && $route.path != '/forgot_password'">
-        <label for="my-drawer-3" class="drawer-overlay"></label>
+    <div class="drawer drawer-mobile bg-[#0c1326] z-10 md:max-w-[25vw] lg:max-w-[25vw] absolute md:relative lg:relative flex flex-col items-stretch justify-around max-h-screen overflow-y-auto"
+        v-if="$route.path != '/login' && $route.path != '/create_account'">
         <div id="logo" class="font-bold text-xl ml-4">
-            <span class="text-white">SIMS</span>
+            <span class="text-white">GRO</span>
+            <span class="text-[#db6f0a]">HOUSE</span>
         </div>
         <div id="user" class="flex items-center ml-4 gap-4">
             <div id="pic" class="rounded-full w-10">
@@ -25,12 +27,12 @@ const items = [
                 <p id="role" class="text-[10px] font-light text-[#999]">Admin</p>
             </div>
         </div>
-        <div class="font-bolder">
+        <div class="drawer-side font-bolder">
             <div class="overflow-y-auto text-base-content p-2">
                 <router-link v-for="item in items" :to="item.link"
-                    class="button px-2 w-3/4 py-2 my-2 flex items-center gap-4 text-sm text-[#747bff]" :class="{'gradient text-[#111] hover:text-[#111] text rounded-full': 
-                    $route.name == item.label}">
-                    <i class="material-icons-round">{{ item.icon }}</i>
+                    class="button px-2 w-3/4 py-2 my-2 flex items-center gap-4 text-sm text-[#747bff]"
+                    :class="{'gradient text-[#111] hover:text-[#111] text rounded-full': $route.name == item.label}">
+                    <i class="material-icons-round">{{item.icon}}</i>
                     <span>{{item.label}}</span>
                 </router-link>
             </div>
